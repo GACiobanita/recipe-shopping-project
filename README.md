@@ -14,12 +14,10 @@ Format: ![Alt Text](url)
     |   +---header  
     |   +---recipes  
     |   |   +---recipe-detail  
-    |   |   \---recipe-list  
-    |   |       \---recipe-item  
-    |   \---shopping-list  
-    |       \---shopping-edit  
-    +---assets  
-    \---environments  
+    |   |   +---recipe-list  
+    |   |       +---recipe-item  
+    |   +---shopping-list  
+    |       +---shopping-edit  
 
 ## RecipeShoppingProject
 
