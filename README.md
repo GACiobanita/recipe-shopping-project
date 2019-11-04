@@ -17,6 +17,7 @@ Format: ![Alt Text](url)
     |   |   ├──recipe-detail  
     |   |   ├──recipe-list  
     |   |       ├──recipe-item  
+    |   |   ├──recipe-model
     |   ├──shopping-list  
     |       ├──shopping-edit  
 ```
