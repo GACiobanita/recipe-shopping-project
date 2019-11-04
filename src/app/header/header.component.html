@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default"> <!--bootstrap classes for a default bootstrap header-->
+    <div class="container-fluid"> <!--view container-->
+        <div class="navbar-header"> <!---->
+            <a href="#" class="navbar-brand"> <!--# is a route added later, header with a brand look, another bootstrap class-->
+                Recipe Book
+            </a>
+        </div>
+        <div class="collapse navbar-collapse"> <!--collapse class, to access collapse styles-->
+            <ul class="nav navbar-nav"> <!--unordered list(ul) for future list of items(links) -->
+                <li><a href="#">Recipes</a></li> <!--list item(li) containing a link to the Recipes section-->
+                <li><a href="#">Shopping List</a></li> <!--Shopping section-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right"> <!--another area in the header, unordered list, navbar-right used to position on the right-->
+                <li class="dropdown"> <!--for options implemented later-->
+                    <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a> <!--content of the dropdown <span></span> represents the down arrow next to "Manage"-->
+                    <ul class="dropdown-menu"> <!--unordered list to hold the items of the dropdown-->
+                        <li><a href="#">Save Data</a></li> <!--links for saving data-->
+                        <li><a href="#">Fetch Data</a></li> <!--links for fetching data-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
