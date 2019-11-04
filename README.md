@@ -9,15 +9,15 @@ Format: ![Alt Text](url)
 
 ## Folder Structure
 
-\---src  
-    +---app  
-    |   +---header  
-    |   +---recipes  
-    |   |   +---recipe-detail  
-    |   |   +---recipe-list  
-    |   |       +---recipe-item  
-    |   +---shopping-list  
-    |       +---shopping-edit  
+├──src  
+    ├──app  
+    |   ├──header  
+    |   ├──recipes  
+    |   |   ├──recipe-detail  
+    |   |   ├──recipe-list  
+    |   |       ├──recipe-item  
+    |   ├──shopping-list  
+    |       ├──shopping-edit  
 
 ## RecipeShoppingProject
 
