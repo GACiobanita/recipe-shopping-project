@@ -5,7 +5,6 @@ Project built using Angular for the creation of a website containing recipe and 
 ## Structure
 
 ![Structure](/component-feature-model-plan.PNG)
-Format: ![Alt Text](url)
 
 ## Folder Structure
 
