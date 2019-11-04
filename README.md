@@ -9,15 +9,17 @@ Format: ![Alt Text](url)
 
 ## Folder Structure
 
+```bash
 ├──src  
     ├──app  
-    |   ├──header  
+    │   ├──header  
     |   ├──recipes  
     |   |   ├──recipe-detail  
     |   |   ├──recipe-list  
     |   |       ├──recipe-item  
     |   ├──shopping-list  
     |       ├──shopping-edit  
+```
 
 ## RecipeShoppingProject
 
