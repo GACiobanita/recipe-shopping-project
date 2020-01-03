@@ -1,6 +1,6 @@
 # Recipe-shopping-project
 
-Project built using Angular for the creation of a website containing recipe and shopping list features with the possibility to edit recipes and select recipe items to be pushed into shopping lists for list creation and editing.
+Project built using an Angular as the front end of an application containing recipe and shopping list features with the possibility to edit recipes and select recipe items to be pushed into shopping lists for list creation and editing.
 
 ## Structure
 
