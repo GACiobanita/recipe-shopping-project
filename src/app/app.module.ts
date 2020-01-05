@@ -12,6 +12,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 
 // VVVVVV Decorator
@@ -32,7 +33,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     FormsModule,
     HttpClientModule
   ], //allows us to add other modules
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent] //tells Angular which component needs to be aware when the app starts
 })
 export class AppModule { }
