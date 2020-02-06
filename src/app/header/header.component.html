@@ -7,15 +7,15 @@
         </div>
         <div class="collapse navbar-collapse"> <!--collapse class, to access collapse styles-->
             <ul class="nav navbar-nav"> <!--unordered list(ul) for future list of items(links) -->
-                <li><a href="#" (click)="onSelect('recipe')">Recipes</a></li> <!--list item(li) containing a link to the Recipes section-->
-                <li><a href="#" (click)="onSelect('shopping-list')">Shopping List</a></li> <!--Shopping section-->
+                <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li> <!--list item(li) containing a link to the Recipes section-->
+                <li routerLinkActive="active"><a routerLink="shopping-list">Shopping List</a></li> <!--Shopping section-->
             </ul>
             <ul class="nav navbar-nav navbar-right"> <!--another area in the header, unordered list, navbar-right used to position on the right-->
                 <li class="dropdown" appDropdown> <!--for options implemented later-->
-                    <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a> <!--content of the dropdown <span></span> represents the down arrow next to "Manage"-->
+                    <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a> <!--content of the dropdown <span></span> represents the down arrow next to "Manage"-->
                     <ul class="dropdown-menu"> <!--unordered list to hold the items of the dropdown-->
-                        <li><a href="#">Save Data</a></li> <!--links for saving data-->
-                        <li><a href="#">Fetch Data</a></li> <!--links for fetching data-->
+                        <li><a style="cursor: pointer;">Save Data</a></li> <!--links for saving data-->
+                        <li><a style="cursor: pointer;">Fetch Data</a></li> <!--links for fetching data-->
                     </ul>
                 </li>
             </ul>

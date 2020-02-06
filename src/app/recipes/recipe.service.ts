@@ -42,6 +42,10 @@ export class RecipeService {
         return this.recipes.slice(); //slice returns a new array that is exactly like this one. The original cannot be accessed
     }
 
+    getRecipe(index: number) {
+        return this.recipes.slice()[index]; //copy of the object
+    }
+
     //pass the ingredients
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.slService.addIngredients(ingredients);
