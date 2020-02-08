@@ -31,11 +31,15 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients); //added functionality to push ingredients of selected recipe to the shopping list
   }
 
-  OnEditRecipe() {
+  onEditRecipe() {
     this.router.navigate(['edit'], {relativeTo: this.route}); //id is not necessary in this case
     // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route}); //we go up one level -../- then we add our id again, and then edit
   }
 
+  onDeleteRecipe() {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
+  }
   
   //remember to clear up subscriptions if using personal observables, these ones are Angular managed
 }
