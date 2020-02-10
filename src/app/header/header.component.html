@@ -11,7 +11,17 @@
                 <li routerLinkActive="active"><a routerLink="shopping-list">Shopping List</a></li> <!--Shopping section-->
             </ul>
             <ul class="nav navbar-nav navbar-right"> <!--another area in the header, unordered list, navbar-right used to position on the right-->
-                <li class="dropdown" appDropdown> <!--for options implemented later-->
+                <ng-template [ngIf]="!authService.isAuthenticated()">
+                    <li><a routerLink="/signup">Register</a></li> <!--Load the SignUp page-->
+                    <li><a routerLink="/signin">Login</a></li> <!--Load the SignUp page-->
+                </ng-template>
+
+                <li><a 
+                    style="cursor: pointer;" 
+                    (click)="onLogout()" 
+                    *ngIf="authService.isAuthenticated()">Logout</a></li>
+
+                <li class="dropdown" appDropdown *ngIf="authService.isAuthenticated()"> <!--for options implemented later-->
                     <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a> <!--content of the dropdown <span></span> represents the down arrow next to "Manage"-->
                     <ul class="dropdown-menu"> <!--unordered list to hold the items of the dropdown-->
                         <li><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li> <!--links for saving data-->
