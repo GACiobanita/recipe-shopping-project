@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
+import { DataStorageService } from './shared/data-storage.service';
 
 
 // VVVVVV Decorator
@@ -41,7 +42,7 @@ import { RecipeService } from './recipes/recipe.service';
     HttpClientModule,
     AppRoutingModule
   ], //allows us to add other modules
-  providers: [ShoppingListService, RecipeService], //added in the AppModule so it is available in the entire application
+  providers: [ShoppingListService, RecipeService, DataStorageService], //added in the AppModule so it is available in the entire application
   bootstrap: [AppComponent] //tells Angular which component needs to be aware when the app starts
 })
 export class AppModule { }
