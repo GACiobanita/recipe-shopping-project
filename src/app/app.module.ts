@@ -18,6 +18,10 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data-storage.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard.service';
 
 
 // VVVVVV Decorator
@@ -33,7 +37,9 @@ import { DataStorageService } from './shared/data-storage.service';
     RecipeItemComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignupComponent,
+    SigninComponent
   ], //register new components
   imports: [
     BrowserModule,
@@ -42,7 +48,7 @@ import { DataStorageService } from './shared/data-storage.service';
     HttpClientModule,
     AppRoutingModule
   ], //allows us to add other modules
-  providers: [ShoppingListService, RecipeService, DataStorageService], //added in the AppModule so it is available in the entire application
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard], //added in the AppModule so it is available in the entire application
   bootstrap: [AppComponent] //tells Angular which component needs to be aware when the app starts
 })
 export class AppModule { }
