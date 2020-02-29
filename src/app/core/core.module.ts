@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -9,8 +8,6 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { RecipeService } from '../recipes/recipe.service';
 import { DataStorageService } from '../shared/data-storage.service';
 import { AuthService } from '../auth/auth.service';
-import { AuthInterceptor } from '../shared/auth.interceptor';
-import { LoggingInterceptor } from '../shared/logging.interceptor';
 
 @NgModule({
     declarations: [
@@ -29,10 +26,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
         ShoppingListService, 
         RecipeService, 
         DataStorageService, 
-        AuthService,
-        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, // in order to provide our AuthInterceptor 
-        {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true} // in order to provide our LoggingInterceptor
-        //interceptor order is important, from top to bottom
+        AuthService
     ]
 })
 export class CoreModule {
