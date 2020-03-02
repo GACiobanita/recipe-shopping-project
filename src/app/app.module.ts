@@ -10,6 +10,8 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { reducers } from './store/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
 
 
 // VVVVVV Decorator
@@ -25,7 +27,8 @@ import { reducers } from './store/app.reducers';
     AuthModule,
     SharedModule,
     CoreModule,
-    StoreModule.forRoot(reducers) // in the main application -- forRoot -- this adds a store, registers shoppingList as the one thing that can change the store and sets an initial state of the application
+    StoreModule.forRoot(reducers), // in the main application -- forRoot -- this adds a store, registers shoppingList as the one thing that can change the store and sets an initial state of the application
+    EffectsModule.forRoot([AuthEffects])
   ], //allows us to add other modules
   //RecipeService remains outside of the RecipesModule because we need to provide it in the whole application -- if it was moved it would still work
   bootstrap: [AppComponent] //tells Angular which component needs to be aware when the app starts
