@@ -1,18 +1,26 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { switchMap, take } from 'rxjs/operators';
 
-import { AuthService } from '../auth/auth.service';
+import * as fromApp from '../store/app.reducers';
+import * as fromAuth from '../auth/store/auth.reducers';
 
 //this interceptor needs to be injected for the full application--core module
 //the HttpInterceptor method requires us to implement the 'intercept' method
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-    constructor(private authService: AuthService) {}
+    constructor(private store: Store<fromApp.AppState>) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> { //HttpHandler object which will give a special method to execute and let a request continue it's journey
         console.log('Intercepted!', req);
-        const copiedReq = req.clone({params: req.params.set('auth', this.authService.getToken())}); //we can not modify a request directly -- requests are immutable -- clone allows us to modify the copy directly   
-        return next.handle(copiedReq);
+        return this.store.select('auth').pipe(
+            take(1),
+            switchMap((authState: fromAuth.State) => {
+                const copiedReq = req.clone({params: req.params.set('auth', authState.token)});
+                return next.handle(copiedReq);
+            })
+        );
     }
 }

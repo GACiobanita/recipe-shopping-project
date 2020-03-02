@@ -4,14 +4,12 @@ import { map } from 'rxjs/operators';
 
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
-import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class DataStorageService {
 
     constructor(private http: HttpClient, 
-                private recipeService: RecipeService,
-                private authService: AuthService) {}
+                private recipeService: RecipeService) {}
 
     storeRecipes() {
         // const token = this.authService.getToken();
@@ -26,14 +24,15 @@ export class DataStorageService {
     }
 
     getRecipes() {
-        const token = this.authService.getToken();
-        this.http.get<Recipe[]>('https://ng-recipe-book-1f60d.firebaseio.com/recipes.json?auth='+token) //need to specify in <dataType> that we are expecting Recipe[] from out subscribe callback   
+        this.http.get<Recipe[]>('https://ng-recipe-book-3adbb.firebaseio.com/recipes.json', {
+            observe: 'body',
+            responseType: 'json'
+        }) //need to specify in <dataType> that we are expecting Recipe[] from out subscribe callback   
             .pipe(
                 map(
-                    (recipes: Recipe[]) => {
+                    (recipes)=> {
                         for (let recipe of recipes) {
                             if(!recipe['ingredients']) {
-                                console.log(recipe);
                                 recipe['ingredients'] = [];
                             }
                         }
@@ -42,7 +41,7 @@ export class DataStorageService {
                 )
             )
             .subscribe(
-                (recipes) => {
+                (recipes: Recipe[]) => {
                     //const recipes: Recipe[] = response; //we don't need to do this anymore since we expect an array of Recipes
                     this.recipeService.setRecipes(recipes);
                 }
